@@ -1,0 +1,47 @@
+{% include "includes/layout.html"%}
+{% block content %}  
+    <h1>Movies Available</h1>
+
+    <!--  Display the Term and Year here --->
+    <h3>To watch</h3>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+               
+                <th scope="col">Title</th>
+                <th scope="col">Movies</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Watch</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- Construct the rest of courses here -->
+            {% for data in moviesData %}
+            <tr>
+                <td scope='row'>{{data["Title"]}}</td>
+               
+                <td>{{data["Movies"]}}</td>
+                <td>{{data["Rating"]}}</td>
+                <td>{{data["Genre"]}}</td>
+                <td>
+                    <form action="{{url_for('watch_movies')}}" method= "POST">
+                    <input type="hidden" name="Title" value="{{data['Title']}}">
+                    <input type="hidden" name="Movies" value="{{data['Movies']}}">
+                    <input type="hidden" name="Genre" value="{{data['Genre']}}">
+                        <button >Play</button>
+                </form>
+                </td>
+            </tr>
+            {% endfor %}
+            <!-------------------------------------->
+
+            </tbody>
+        </table>
+
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,17 @@
+{% include "includes/layout.html"%}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Welcome to MYFLIX.</h1>
+            {% if login %}
+            <h3>Let's get started.</h3>
+            {% else %}
+            <p><a href="{{'login'}}">Login</a></p>
+            {% endif %}
+
+            
+        </div>
+    </div>
+
+{% endblock %}

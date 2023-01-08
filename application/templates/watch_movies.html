@@ -1,0 +1,17 @@
+{% include "includes/layout.html"%}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>You are watching movie:</h1>
+            <p>Title: {{data.Title}}</p>
+            <p>Movies: {{data.Movies}}</p>
+            <p>Genre: {{data.Genre}}</p>
+            <video width="400" controls>
+                <source src="static/video.mp4" type="video/mp4">
+                
+              </video>
+        </div>
+    </div>
+
+{% endblock %}
